@@ -1,77 +1,63 @@
 #!/bin/bash
+# Script de instalação de ambiente de desenvolvimento no Linux Mint
+# Autor: Anderson (com apoio do ChatGPT 😉)
+# Uso: sudo bash setup_dev_env.sh
 
-# ==================================================
-# Script de instalação Flutter + VS Code + Android SDK + Emulador AVD
-# Para Linux Mint (Ubuntu-based)
-# ==================================================
+echo "=== Atualizando sistema ==="
+apt update && apt upgrade -y
 
-echo ">>> Atualizando sistema e instalando dependências..."
-sudo apt update
-sudo apt install -y git curl unzip xz-utils zip libglu1-mesa clang cmake ninja-build pkg-config libgtk-3-dev openjdk-11-jdk wget qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+echo "=== Instalando utilitários básicos ==="
+apt install -y build-essential curl wget git unzip zip software-properties-common apt-transport-https gnupg lsb-release
 
-# -------------------------------
-# Instalar VS Code
-# -------------------------------
-echo ">>> Instalando VS Code..."
-sudo apt install -y software-properties-common apt-transport-https wget
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt update
-sudo apt install -y code
+echo "=== Instalando OpenJDK 21 ==="
+apt install -y openjdk-21-jdk
 
-# -------------------------------
-# Instalar Flutter SDK
-# -------------------------------
-echo ">>> Baixando Flutter SDK..."
-cd $HOME
-if [ ! -d "$HOME/flutter" ]; then
-  git clone https://github.com/flutter/flutter.git -b stable
-fi
-echo 'export PATH="$HOME/flutter/bin:$PATH"' >> ~/.bashrc
+echo "=== Instalando NetBeans 25 ==="
+wget https://downloads.apache.org/netbeans/netbeans-installers/25/netbeans-25-bin-linux-x64.sh -O /tmp/netbeans.sh
+chmod +x /tmp/netbeans.sh
+bash /tmp/netbeans.sh --silent
+
+echo "=== Instalando IntelliJ IDEA Community ==="
+snap install intellij-idea-community --classic
+
+echo "=== Instalando Eclipse ==="
+snap install eclipse --classic
+
+echo "=== Instalando Visual Studio Code ==="
+snap install code --classic
+
+echo "=== Instalando Anaconda ==="
+wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh -O /tmp/anaconda.sh
+bash /tmp/anaconda.sh -b -p /opt/anaconda
+echo 'export PATH="/opt/anaconda/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-# -------------------------------
-# Configurar Android SDK
-# -------------------------------
-echo ">>> Configurando Android SDK..."
-mkdir -p $HOME/Android/Sdk/cmdline-tools
-cd $HOME/Android/Sdk/cmdline-tools
-wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdline-tools.zip
-unzip -o cmdline-tools.zip
-rm cmdline-tools.zip
-mv cmdline-tools latest
+echo "=== Instalando Pygame ==="
+/opt/anaconda/bin/conda install -y -c cogsci pygame
 
-# Variáveis de ambiente
-echo 'export ANDROID_SDK_ROOT=$HOME/Android/Sdk' >> ~/.bashrc
-echo 'export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH' >> ~/.bashrc
+echo "=== Instalando Umbrello (UML) ==="
+apt install -y umbrello
+
+echo "=== Instalando Node.js (LTS) e npm ==="
+curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+apt install -y nodejs
+
+echo "=== Instalando pacotes globais para desenvolvimento web ==="
+npm install -g create-react-app react-native-cli @angular/cli express-generator
+
+echo "=== Instalando MongoDB ==="
+apt install -y mongodb
+
+echo "=== Instalando Android Studio ==="
+snap install android-studio --classic
+
+echo "=== Instalando Flutter ==="
+git clone https://github.com/flutter/flutter.git -b stable /opt/flutter
+echo 'export PATH="$PATH:/opt/flutter/bin"' >> ~/.bashrc
 source ~/.bashrc
-
-# -------------------------------
-# Aceitar licenças e instalar pacotes essenciais
-# -------------------------------
-echo ">>> Aceitando licenças do Android SDK..."
-yes | flutter doctor --android-licenses
-
-echo ">>> Instalando pacotes essenciais do Android SDK..."
-sdkmanager --install "platform-tools" "platforms;android-33" "build-tools;33.0.2" "emulator" "system-images;android-33;google_apis;x86_64"
-
-# -------------------------------
-# Criar e configurar um emulador Android (AVD)
-# -------------------------------
-echo ">>> Criando emulador Android..."
-echo "no" | avdmanager create avd -n flutter_emulator -k "system-images;android-33;google_apis;x86_64" --device "pixel"
-
-# -------------------------------
-# Verificar instalação
-# -------------------------------
-echo ">>> Verificação final do Flutter Doctor..."
 flutter doctor
 
-echo "================================================="
-echo "Setup concluído!"
-echo "Para iniciar o emulador use:"
-echo "    emulator -avd flutter_emulator"
-echo
-echo "Depois rode seu app Flutter com:"
-echo "    flutter run"
-echo "================================================="
+echo "=== Instalando navegador Chromium ==="
+apt install -y chromium-browser
+
+echo "=== Instalação concluída! Reinicie a máquina para aplicar todas as configurações. ==="
