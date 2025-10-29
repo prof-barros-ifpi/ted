@@ -25,7 +25,7 @@
 
 📘 **Sobre o Repositório**
 
-Este repositório reúne materiais, exemplos e projetos práticos desenvolvidos durante a disciplina **Tópicos Especiais em Programação**, com ênfase em **desenvolvimento mobile multiplataforma utilizando React Native**.  
+Este repositório reúne materiais, exemplos e projetos práticos desenvolvidos durante a disciplina **Tópicos Especiais em Desenvolvimento**, com ênfase em **desenvolvimento mobile multiplataforma utilizando React Native**.  
 O foco é introduzir os conceitos, ferramentas e práticas que permitem construir aplicações modernas e responsivas para **Android** e **iOS**, integrando APIs e recursos nativos.
 
 ---
