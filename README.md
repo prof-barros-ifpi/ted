@@ -7,7 +7,7 @@
 
 <p align="center">
   <strong>Instituto Federal de Educação, Ciência e Tecnologia do Piauí - Campus Pedro II</strong><br>
-  <em>Disciplina:</em> Tópicos Especiais em Programação<br>
+  <em>Disciplina:</em> Tópicos Especiais em Desenvolvimento<br>
   <em>Turma:</em> 3º ano Técnico em Informática Integrado ao Ensino Médio<br>
   <em>Período:</em> 2025.2<br>
   <em>Docente:</em> Prof. Anderson dos Reis Barros
