@@ -1,2 +1,0 @@
-class Quimica:
-    pass
