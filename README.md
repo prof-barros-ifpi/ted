@@ -63,6 +63,10 @@ Capacitar o estudante a **projetar e desenvolver aplicações mobile reais**, ut
 - Ferramentas Expo: [Expo Docs](https://docs.expo.dev/)  
 - Biblioteca de ícones: [React Native Vector Icons](https://oblador.github.io/react-native-vector-icons/)  
 - Repositório de componentes: [NativeBase](https://nativebase.io/)  
+## 🌐 Roadmaps Interativos
+
+- [📱 Roadmap — Desenvolvimento Mobile](https://seuusuario.github.io/nome-do-repositorio/roadmap-mobile.html)
+- [🐙 Roadmap — Git & GitHub Acadêmico](https://seuusuario.github.io/nome-do-repositorio/roadmap-git.html)
 
 ---
 
