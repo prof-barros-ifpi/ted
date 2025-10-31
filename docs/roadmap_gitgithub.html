@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roadmap Interativo — Git & GitHub (Acadêmico)</title>
+  <style>
+    :root{--accent:#0b74de;--muted:#6b7280;--card:#ffffff;--bg:#f6f8fb}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg);color:#0f172a}
+    .container{max-width:1000px;margin:24px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 20px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:260px 1fr;gap:18px}
+    nav{position:sticky;top:20px}
+    .toc{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(11,20,40,0.06)}
+    .toc a{display:block;padding:8px;border-radius:8px;color:#0f172a;text-decoration:none}
+    .toc a:hover{background:#eef7ff}
+    main{min-height:400px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(11,20,40,0.06);margin-bottom:16px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .section-title{display:flex;justify-content:space-between;align-items:center}
+    .controls{display:flex;gap:8px}
+    button{background:var(--accent);color:white;border:0;padding:8px 10px;border-radius:10px;cursor:pointer}
+    button.ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--accent)}
+    .accordion{margin-top:12px}
+    .acc-item{border-radius:8px;overflow:hidden;margin-bottom:8px;border:1px solid rgba(15,23,42,0.04)}
+    .acc-head{display:flex;justify-content:space-between;align-items:center;padding:12px;background:linear-gradient(90deg,rgba(11,116,222,0.06),transparent);cursor:pointer}
+    .acc-body{padding:12px;display:none;background:#fff}
+    pre{background:#0f172a;color:#f8fafc;padding:12px;border-radius:8px;overflow:auto}
+    .code{background:#0f172a;color:#f8fafc;padding:10px;border-radius:8px;overflow:auto;font-family:monospace;font-size:13px}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+    @media (max-width:880px){.grid{grid-template-columns:1fr;}.toc{display:flex;gap:8px;overflow:auto}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">G&GH</div>
+      <div>
+        <h1>Roadmap Interativo — Git & GitHub (Acadêmico)</h1>
+        <p class="lead">Guia didático passo a passo para estudantes: comandos essenciais, fluxo local, colaboração, integração com VS Code e exercícios práticos.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <nav>
+        <div class="toc card">
+          <strong>Índice</strong>
+          <a href="#fundamentos">1 — Fundamentos do Git</a>
+          <a href="#local">2 — Fluxo Local</a>
+          <a href="#github">3 — Integração com GitHub</a>
+          <a href="#collab">4 — Colaboração e Branches</a>
+          <a href="#vscode">5 — GitHub no VS Code</a>
+          <a href="#boas">6 — Boas Práticas</a>
+          <a href="#projetos">7 — Projetos Práticos</a>
+          <a href="#downloads">8 — Downloads</a>
+        </div>
+      </nav>
+
+      <main>
+        <section id="fundamentos" class="card">
+          <div class="section-title">
+            <h2>1 — Fundamentos do Git</h2>
+            <div class="controls">
+              <button id="printF">Imprimir</button>
+              <button class="ghost" data-copy="fund">Copiar resumo</button>
+            </div>
+          </div>
+          <p class="meta">O que é: sistema de controle de versão distribuído; conceitos: snapshot, commit, branch, merge.</p>
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-head">Conceitos chave <span>▼</span></div>
+              <div class="acc-body">
+                <ul>
+                  <li><strong>Repositório:</strong> local (.git) ou remoto (GitHub).</li>
+                  <li><strong>Commit:</strong> snapshot do projeto com mensagem.</li>
+                  <li><strong>Branch:</strong> linha de desenvolvimento independente.</li>
+                  <li><strong>Merge vs Rebase:</strong> integrar mudanças; rebase reescreve histórico.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head">Instalação e configuração <span>▼</span></div>
+              <div class="acc-body">
+                <p>Comandos iniciais:</p>
+                <div class="code">
+                  git --version<br/>
+                  git config --global user.name "Seu Nome"<br/>
+                  git config --global user.email "seu@exemplo.com"
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="local" class="card">
+          <div class="section-title">
+            <h2>2 — Fluxo de Trabalho Local</h2>
+            <div class="controls">
+              <button id="printL">Imprimir</button>
+              <button class="ghost" data-copy="local">Copiar resumo</button>
+            </div>
+          </div>
+          <p class="meta">Operações diárias para trabalhar em um projeto localmente.</p>
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-head">Inicializar e snapshot <span>▼</span></div>
+              <div class="acc-body">
+                <div class="code">
+                  git init  # cria repositório local<br/>
+                  git add <arquivo>  # adiciona ao staging<br/>
+                  git commit -m "mensagem"  # cria commit<br/>
+                  git status  # ver estado do repositório<br/>
+                  git log --oneline --graph  # histórico resumido
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-head">Branches e trabalho isolado <span>▼</span></div>
+              <div class="acc-body">
+                <div class="code">
+                  git branch  # lista branches<br/>
+                  git checkout -b feature/x  # cria e troca para branch<br/>
+                  git merge feature/x  # mescla branch na atual<br/>
+                  git rebase main  # reaplica commits sobre main
+                </div>
+                <p class="meta">Dica: faça commits pequenos e frequentes; mensagens claras.</p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-head">Ignorar arquivos e hooks <span>▼</span></div>
+              <div class="acc-body">
+                <p>Use <code>.gitignore</code> para evitar commitar arquivos binários, chaves e dependências.</p>
+                <pre class="code"># Exemplo .gitignore
+node_modules/
+.DS_Store
+*.log
+.env
+</pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="github" class="card">
+          <div class="section-title">
+            <h2>3 — Integração com GitHub</h2>
+            <div class="controls">
+              <button id="printG">Imprimir</button>
+              <button class="ghost" data-copy="github">Copiar resumo</button>
+            </div>
+          </div>
+          <p class="meta">Subir código para remoto, clonar, sincronizar e criar releases.</p>
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-head">Criar e conectar repositório <span>▼</span></div>
+              <div class="acc-body">
+                <div class="code">
+                  git remote add origin git@github.com:usuario/repo.git<br/>
+                  git push -u origin main  # primeiro push estabelece upstream
+                </div>
+                <p>Também é possível usar HTTPS: <code>https://github.com/usuario/repo.git</code></p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-head">Clonar, pull e fetch <span>▼</span></div>
+              <div class="acc-body">
+                <div class="code">
+                  git clone git@github.com:usuario/repo.git<br/>
+                  git pull origin main  # puxa e faz merge automático<br/>
+                  git fetch origin  # busca referências sem mesclar<br/>
+                  git merge origin/main  # mescla manualmente
+                </div>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-head">Releases e tags <span>▼</span></div>
+              <div class="acc-body">
+                <div class="code">
+                  git tag -a v1.0 -m "Versão 1.0"<br/>
+                  git push origin v1.0
+                </div>
+                <p>Use releases do GitHub para distribuir binários e notas de versão.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="collab" class="card">
+          <div class="section-title">
+            <h2>4 — Colaboração e Branches</h2>
+            <div class="controls">
+              <button id="printC2">Imprimir</button>
+              <button class="ghost" data-copy="collab">Copiar resumo</button>
+            </div>
+          </div>
+          <p class="meta">Como trabalhar em equipe: forks, pull requests, revisão de código e resolução de conflitos.</p>
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-head">Fluxo simples de colaboração <span>▼</span></div>
+              <div class="acc-body">
+                <ol>
+                  <li>Criar branch por tarefa: <code>feature/login</code></li>
+                  <li>Fazer commits pequenos e push para remote</li>
+                  <li>Abrir Pull Request (PR) no GitHub</li>
+                  <li>Revisão por colegas e merge após aprovação</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-head">Resolvendo conflitos <span>▼</span></div>
+              <div class="acc-body">
+                <p>Ao haver conflito no merge, o Git marcará os arquivos. Edite, teste e depois:</p>
+                <div class="code">
+                  git add arquivo_resolvido<br/>
+                  git commit -m "resolvido conflito"
+                </div>
+                <p class="meta">Ferramentas como VS Code e GitHub Desktop mostram conflitos visualmente.</p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-head">Pull Request — boas práticas <span>▼</span></div>
+              <div class="acc-body">
+                <ul>
+                  <li>Descrever objetivo e mudanças no PR</li>
+                  <li>Referenciar issues relacionadas</li>
+                  <li>Manter PRs pequenos e focados</li>
+                  <li>Adicionar testes e screenshots quando aplicável</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="vscode" class="card">
+          <div class="section-title">
+            <h2>5 — Git & GitHub no VS Code</h2>
+            <div class="controls">
+              <button id="printV">Imprimir</button>
+              <button class="ghost" data-copy="vscode">Copiar resumo</button>
+            </div>
+          </div>
+          <p class="meta">Extensões úteis: GitLens, Git Graph, GitHub Pull Requests and Issues.</p>
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-head">Setup básico <span>▼</span></div>
+              <div class="acc-body">
+                <ol>
+                  <li>Abra a pasta do projeto no VS Code</li>
+                  <li>Use o painel de fonte de controle para stage/commit</li>
+                  <li>Instale GitLens para histórico e blame</li>
+                </ol>
+                <p class="meta">Com a extensão GitHub, é possível abrir/gerenciar PRs diretamente no editor.</p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <div class="acc-head">Fluxo com GitHub Codespaces / GitHub CLI <span>▼</span></div>
+              <div class="acc-body">
+                <p>Opcionalmente, use <code>gh</code> para criar PRs e issues via terminal:</p>
+                <div class="code">
+                  gh auth login<br/>
+                  gh repo clone usuario/repo<br/>
+                  gh pr create --fill
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="boas" class="card">
+          <div class="section-title">
+            <h2>6 — Boas Práticas</h2>
+            <div class="controls">
+              <button id="printB">Imprimir</button>
+              <button class="ghost" data-copy="boas">Copiar resumo</button>
+            </div>
+          </div>
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-head">Mensagens de commit <span>▼</span></div>
+              <div class="acc-body">
+                <p>Use mensagens claras e padronizadas. Exemplo:</p>
+                <pre class="code">feat(auth): adicionar login com Google
+fix(ui): corrigir overflow na tela inicial
+chore: atualizar dependências</pre>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head">Branching model simples <span>▼</span></div>
+              <div class="acc-body">
+                <ul>
+                  <li><strong>main</strong> — código pronto para produção</li>
+                  <li><strong>develop</strong> — integrações e testes</li>
+                  <li><strong>feature/*</strong> — novas funcionalidades</li>
+                </ul>
+                <p class="meta">Adote convenções como Conventional Commits e semântica de versionamento (SemVer).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projetos" class="card">
+          <h3>7 — Projetos Práticos (exercícios)</h3>
+          <ol>
+            <li>Inicie um repositório e publique no GitHub (incluir README e .gitignore).</li>
+            <li>Crie uma branch <code>feature/exercicio1</code>, implemente e abra PR.</li>
+            <li>Simule conflito: dois branches editam o mesmo arquivo e resolva o conflito.</li>
+            <li>Crie uma tag e publique uma release com notas.</li>
+          </ol>
+        </section>
+
+        <section id="downloads" class="card">
+          <h3>8 — Downloads</h3>
+          <p>Links para arquivos gerados:</p>
+          <p>
+            <a href="sandbox:/mnt/data/Roadmaps_Interativo_Desenvolvimento_Mobile.html" download><button>Roadmaps Mobile (HTML)</button></a>
+            <a href="sandbox:/mnt/data/Roadmaps_Desenvolvimento_Mobile.pdf" download><button class="ghost">Roadmaps Mobile (PDF)</button></a>
+            <a href="sandbox:/mnt/data/Gabarito_Comentado_Desenvolvimento_Mobile.pdf" download><button class="ghost">Gabarito Comentado (PDF)</button></a>
+          </p>
+          <p class="meta">Após baixar, faça upload no repositório GitHub e habilite Pages para publicar.</p>
+        </section>
+
+        <footer>
+          <small>Documento gerado para a disciplina Tópicos Especiais em Programação — IFPI - Campus Pedro II • 2025.2</small>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Accordion
+    document.querySelectorAll('.acc-head').forEach(h => {
+      h.addEventListener('click', () => {
+        const body = h.nextElementSibling;
+        const open = body.style.display === 'block';
+        document.querySelectorAll('.acc-body').forEach(b=>b.style.display='none');
+        body.style.display = open ? 'none' : 'block';
+      });
+    });
+
+    // Copy summary
+    document.querySelectorAll('[data-copy]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-copy');
+        let text = '';
+        if(id==='fund') text = 'Git: sistema de controle de versão distribuído — commit, branch, merge, rebase.';
+        if(id==='local') text = 'Fluxo local: git init, add, commit, branch, merge, rebase. Use .gitignore.';
+        if(id==='github') text = 'Integração: git remote, push, pull, fetch, tags e releases.';
+        if(id==='collab') text = 'Colaboração: branch por tarefa, PRs pequenos, revisão e resolver conflitos.';
+        if(id==='vscode') text = 'VS Code: GitLens, Git Graph, GitHub PRs, gh CLI.';
+        if(id==='boas') text = 'Boas práticas: mensagens claras, branching model, Conventional Commits e SemVer.';
+        navigator.clipboard.writeText(text).then(()=>{
+          btn.textContent='Copiado ✓';
+          setTimeout(()=>btn.textContent='Copiar resumo',1200);
+        })
+      })
+    });
+
+    // Print handlers
+    ['printF','printL','printG','printC2','printV','printB'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.addEventListener('click', ()=>{
+        const targetId = {printF:'fundamentos',printL:'local',printG:'github',printC2:'collab',printV:'vscode',printB:'boas'}[id];
+        const section = document.getElementById(targetId);
+        printSection(section);
+      });
+    });
+
+    function printSection(el){
+      const w = window.open('', '_blank');
+      w.document.write('<html><head><title>Imprimir</title>');
+      w.document.write('<style>body{font-family:Arial,Helvetica,sans-serif;padding:20px}</style>');
+      w.document.write('</head><body>');
+      w.document.write(el.innerHTML);
+      w.document.write('</body></html>');
+      w.document.close();
+      w.print();
+    }
+  </script>
+</body>
+</html>
