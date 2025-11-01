@@ -31,6 +31,7 @@ O foco é introduzir os conceitos, ferramentas e práticas que permitem construi
 ---
 
 🧩 **Conteúdos Principais**
+- Introdução ao versionamento de código com Git/Github <a href='link'/>
 - Introdução ao desenvolvimento mobile  
 - Ambiente de desenvolvimento (Node.js, Android Studio, VS Code)  
 - Fundamentos do React e React Native  
